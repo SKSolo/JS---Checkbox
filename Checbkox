@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            #all
+            {
+                text-align: center;
+                margin-top: 200px;
+            }
+        </style>
+
+        <script>
+            function sprawdz()
+            {
+            var zczytcena = parseFloat(document.getElementById("cena").value);
+            var zczytilosc = parseFloat(document.getElementById("ilosc").value);
+            var zvat = document.getElementById("vat").checked;
+            var zpodatek = document.getElementById("podatek").checked;
+            var ile = zczytilosc * zczytcena;
+            var odp = document.getElementById("wynik").innerHTML = 'Czysta cena: ' + ile;
+
+            
+       
+
+            if(zvat == true)
+            {
+              var odpvat =   document.getElementById("wynik1").innerHTML = 'Cena Brutto:' + ile*1.23;
+               
+            }
+
+            if(zpodatek == true)
+            {
+               var odppod =  ile*1.18;
+               var ilerazem = document.getElementById("wynik2").innerHTML = 'Cena z podatkiem: '+ odppod*1.23;
+            }
+
+            };
+        </script>
+
+    </head>
+
+    <body>
+        <div id="all">
+        Cena:      <input type="text" id="cena" onkeyup="sprawdz()"></br></br>
+        Ilosc:     <input type="text" id="ilosc"onkeyup="sprawdz()">
+    </br></br>
+
+       VAT <input type="checkbox" id="vat" onclick="sprawdz()">
+       Podatek <input type="checkbox" id="podatek"  onclick="sprawdz()"></br></br>
+
+      
+       <div id="wynik"></div>
+       <div id="wynik1"></div>
+       <div id="wynik2"></div>
+     </div>
+    </body>
+</html>
